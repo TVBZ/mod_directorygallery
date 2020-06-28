@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<updates>
+	<update>
+		<name>Directory Gallery</name>
+		<description>A lightweight gallery module to display images from designated folder.</description>
+		<element>mod_directorygallery</element>
+		<type>module</type>
+		<client>0</client>
+		<version>1.1.1</version>
+		<infourl title="Joomla!">https://github.com/TVBZ/mod_directorygallery</infourl>
+		<downloads>
+			<downloadurl type="full" format="zip">https://github.com/TVBZ/mod_directorygallery/archive/master.zip</downloadurl>
+		</downloads>
+		<tags>
+			<tag>stable</tag>
+		</tags>
+		<maintainer>Tom F. Vanbrabant a.k.a. TVBZ</maintainer>
+		<maintainerurl>https://github.com/TVBZ</maintainerurl>
+		<targetplatform name="joomla" version="3.[56789]" />
+		<php_minimum>7.0</php_minimum>
+	</update>
+</updates>

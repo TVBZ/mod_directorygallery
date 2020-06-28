@@ -1,0 +1,45 @@
+/**
+ * mod_directorygallery
+ * Copyright 2020 Tom F. Vanbrabant
+ * Licensed under: SEE LICENSE IN https://github.com/TVBZ/mod_directorygallery/blob/master/LICENSE
+ */
+ 
+
+.light-gallery {
+  display: flex;
+  flex-flow: row wrap;
+  margin-left: -8px;
+  width: 100%;
+}
+
+.lg-img-container {
+  flex: auto;
+  height: 250px;
+  flex-basis: 150px;
+  margin: 0 8px 8px 0;
+}
+
+.lg-img-container:nth-child(4n+1) {
+  flex-basis: 250px;
+}
+
+.lg-img-container:nth-child(4n+1):nth-child(4n+2) {
+  flex-basis: 325px;
+}
+
+.lg-img-container:nth-child(4n+1):nth-child(4n+3) {
+  flex-basis: 180px;
+}
+
+.lg-img-container:nth-child(4n+1):nth-child(4n+4) {
+  flex-basis: 380px;
+}
+
+.lg-img-container img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  max-width: 100%;
+  cursor: pointer;
+}
