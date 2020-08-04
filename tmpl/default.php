@@ -30,18 +30,18 @@ endif;
 $document->addStyleSheet(Uri::root(true) . "/modules/mod_directorygallery/assets/css/grid.css");
 
 // Get JS from jsdeliver CDN
-$jsdelivr = "https://cdn.jsdelivr.net/combine/npm/lightgallery";
-if ($params["autoplay"] === "1") $jsdelivr .= ",npm/lg-autoplay";
-if ($params["fullscreen"] === "1") $jsdelivr .= ",npm/lg-fullscreen";
-if ($params["hash"] === "1") $jsdelivr .= ",npm/lg-hash";
-if ($params["pager"] === "1") $jsdelivr .= ",npm/lg-pager";
-if ($params["share"] === "1") $jsdelivr .= ",npm/lg-share";
-if ($params["thumbnails"] === "1") $jsdelivr .= ",npm/lg-thumbnail";
-if ($params["zoom"] === "1") $jsdelivr .= ",npm/lg-zoom";
-$document->addScript($jsdelivr, "text/javascript", true, false);
+$cdn = "https://cdn.jsdelivr.net/combine/npm/lightgallery";
+if ($params["autoplay"]) $cdn .= ",npm/lg-autoplay";
+if ($params["fullscreen"]) $cdn .= ",npm/lg-fullscreen";
+if ($params["hash"]) $cdn .= ",npm/lg-hash";
+if ($params["pager"]) $cdn .= ",npm/lg-pager";
+if ($params["share"]) $cdn .= ",npm/lg-share";
+if ($params["thumbnails"]) $cdn .= ",npm/lg-thumbnail";
+if ($params["zoom"]) $cdn .= ",npm/lg-zoom";
+$document->addScript($cdn, "text/javascript", true, false);
 
 // Initialize gallery
-$document->addScript(Uri::root(true) . "/modules/mod_directorygallery/assets/js/init.gallery.js", "text/javascript", true, false);
+$document->addScript(Uri::root(true) . "/modules/mod_directorygallery/assets/js/init.gallery.min.js", "text/javascript", true, false);
 
 ?>
 

@@ -34,7 +34,7 @@
                     type="text"
                     label="File types"
                     description='Set the accepted image extensions, separated by pipe character. For example: "jpg|png|jpeg".'
-                    default="jpeg|jpg|png|webp|tiff"
+                    default="jpe?g|png|webp|gif|tiff|bmp"
                 />
                 
               <field 
@@ -87,13 +87,23 @@
                      <option value="lg-tube">Tube</option>
               </field>
 
-            </fieldset>
-            <fieldset name="gallery" label="Gallery settings">
+              <field
+                    name="speed"
+                    type="text"
+                    filter="UINT"
+                    label="Speed"
+                    description="Transition duration"
+                    default="600"
+                />
+
+              <field name="spacer_1"
+                     type="spacer"
+                     hr="true"/>
 
               <field name="counter" 
                      type="radio" 
                      class="btn-group btn-group-yesno" 
-                     default="0" 
+                     default="1" 
                      label="Counter" 
                      description="">
                      <option value="0">JHIDE</option>
@@ -113,7 +123,7 @@
               <field name="caption" 
                      type="radio" 
                      class="btn-group btn-group-yesno" 
-                     default="0" 
+                     default="1" 
                      label="Image captions" 
                      description="If enabled a caption will be generated from image filename. Special characters like - and _ will be replaced with spaces.">
                      <option value="0">JHIDE</option>
@@ -130,6 +140,20 @@
                      <option value="1">JSHOW</option>
               </field>
 
+              <field name="pager" 
+                     type="radio" 
+                     class="btn-group btn-group-yesno" 
+                     default="0" 
+                     label="Pager" 
+                     description="">
+                     <option value="0">JHIDE</option>
+                     <option value="1">JSHOW</option>
+              </field>
+
+              <field name="spacer_zoom"
+                     type="spacer"
+                     hr="true"/>
+
               <field name="zoom" 
                      type="radio" 
                      class="btn-group btn-group-yesno" 
@@ -140,12 +164,23 @@
                      <option value="1">JSHOW</option>
               </field>
 
-              <field name="pager" 
+              <field
+                    name="scale"
+                    type="text"
+                    filter="FLOAT"
+                    label="Scale"
+                    description="Zoom amount"
+                    default="0.5"
+                    showon="zoom:1"
+                />
+
+              <field name="actualsize" 
                      type="radio" 
                      class="btn-group btn-group-yesno" 
                      default="0" 
-                     label="Pager" 
-                     description="">
+                     label="Actual size" 
+                     description="Show button to reset to original size"
+                     showon="zoom:1">
                      <option value="0">JHIDE</option>
                      <option value="1">JSHOW</option>
               </field>
@@ -159,6 +194,53 @@
                      class="btn-group btn-group-yesno" 
                      default="0" 
                      label="Autoplay" 
+                     description="">
+                     <option value="0">JOFF</option>
+                     <option value="1">JON</option>
+              </field>
+
+              <field name="autoplaycontrols" 
+                     type="radio" 
+                     class="btn-group btn-group-yesno" 
+                     default="1" 
+                     label="Autoplay controls" 
+                     description=""
+                     showon="autoplay:1">
+                     <option value="0">JHIDE</option>
+                     <option value="1">JSHOW</option>
+              </field>
+
+              <field name="progressbar" 
+                     type="radio" 
+                     class="btn-group btn-group-yesno" 
+                     default="1" 
+                     label="Progressbar" 
+                     description=""
+                     showon="autoplay:1">
+                     <option value="0">JHIDE</option>
+                     <option value="1">JSHOW</option>
+              </field>
+
+              <field
+                    name="pauze"
+                    type="text"
+                    filter="UINT"
+                    label="Pauze"
+                    description="Pauze between transitions"
+                    default="6000"
+                    showon="autoplay:1"
+                />
+
+              <field name="spacer_00"
+                     type="spacer"
+                     hr="true"
+              />
+
+              <field name="loop" 
+                     type="radio" 
+                     class="btn-group btn-group-yesno" 
+                     default="0" 
+                     label="Loop" 
                      description="">
                      <option value="0">JOFF</option>
                      <option value="1">JON</option>
@@ -198,25 +280,39 @@
                      <option value="1">JSHOW</option>
               </field>
 
-              <field name="gallery_thumbnails_show" 
+              <field name="thumbnails_show" 
                      type="radio" 
                      class="btn-group btn-group-yesno" 
-                     default="0" 
+                     default="1" 
                      label="Show thumbnails" 
-                     description="" >
+                     description="" 
+                     showon="thumbnails:1" >
                      <option value="0">JHIDE</option>
                      <option value="1">JSHOW</option>
               </field>
 
-              <field name="gallery_thumbnails_toggle" 
+              <field name="thumbnails_toggle" 
                      type="radio" 
                      class="btn-group btn-group-yesno" 
-                     default="0" 
+                     default="1" 
                      label="Toggle thumbnails" 
-                     description="" >
+                     description=""
+                     showon="thumbnails:1" >
                      <option value="0">JOFF</option>
                      <option value="1">JON</option>
               </field>
+
+               <field
+                    name="thumbnails_margin"
+                    type="text"
+                    filter="UINT"
+                    label="Thumbnails margin"
+                    description="Margin between thumbnails (px)."
+                    default="10"
+                    showon="thumbnails:1" 
+                />
+
+              
             </fieldset>
         </fields>
     </config>
