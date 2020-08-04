@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @name        Directory Gallery
  * @copyright	Copyright (C) 2020 All rights reserved
@@ -16,16 +17,17 @@ defined('_JEXEC') or die;
 // Set some vars
 use Joomla\CMS\Factory;
 use \Joomla\CMS\Uri\Uri;
+
 $document = Factory::getDocument();
 
 // Light Gallery CSS
 $document->addStyleSheet("https://cdn.jsdelivr.net/npm/lightgallery@1/src/css/lightgallery.min.css");
-if ($params["transition"] !== "lg-slide" && $params["transition"] !== "lg-fade"):
+if ($params["transition"] !== "lg-slide" && $params["transition"] !== "lg-fade") :
     $document->addStyleSheet("https://cdn.jsdelivr.net/npm/lightgallery@1/src/css/lg-transitions.min.css");
 endif;
 
 // Custom styles
-$document->addStyleSheet(Uri::root(true)."/modules/mod_directorygallery/assets/css/masonry-horizontal.css");
+$document->addStyleSheet(Uri::root(true) . "/modules/mod_directorygallery/assets/css/grid.css");
 
 // Get JS from jsdeliver CDN
 $jsdelivr = "https://cdn.jsdelivr.net/combine/npm/lightgallery";
@@ -39,15 +41,15 @@ if ($params["zoom"] === "1") $jsdelivr .= ",npm/lg-zoom";
 $document->addScript($jsdelivr, "text/javascript", true, false);
 
 // Initialize gallery
-$document->addScript(Uri::root(true)."/modules/mod_directorygallery/assets/js/init.gallery.js","text/javascript", true, false);
+$document->addScript(Uri::root(true) . "/modules/mod_directorygallery/assets/js/init.gallery.js", "text/javascript", true, false);
 
 ?>
 
 
 <div id="light-gallery-<?php echo $module->id; ?>" class="light-gallery">
     <?php foreach ($images as $image) : ?>
-        <div class="lg-img-container" data-src="<?php echo $image["src"]; ?>">
-            <img class="lg-img-<?php echo $image["id"]; ?>" alt="<?php echo $image["alt"]; ?>" src="<?php echo $image["src"]; ?>"/>
+        <div class="lg-img-container lg-img-<?php echo $image["id"]; ?>" data-src="<?= $image["src"] ?>">
+            <img alt="<?php echo $image["alt"]; ?>" src="<?= $image["src"] ?>" />
         </div>
     <?php endforeach; ?>
 </div>

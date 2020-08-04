@@ -1,0 +1,12 @@
+/**
+ * mod_directorygallery
+ * Copyright 2020 Tom F. Vanbrabant
+ * Licensed under: SEE LICENSE IN https://github.com/TVBZ/mod_directorygallery/blob/master/LICENSE
+ */
+ 
+
+.light-gallery {
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+    grid-gap: 10px;
+  }

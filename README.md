@@ -1,6 +1,6 @@
 # Directory Gallery for Joomla!
 
-Turn any directory in your Joomla! website into an Light Gallery.
+Turn any directory in your Joomla! website into a Light Gallery.
 
 ## Installation
 

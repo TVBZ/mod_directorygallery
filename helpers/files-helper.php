@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @name        Directory Gallery
  * @copyright	Copyright (C) 2020 All rights reserved
@@ -13,8 +14,9 @@
 // No direct access
 defined('_JEXEC') or die;
 
+use \Joomla\CMS\Uri\Uri;
 
-class filesHelper 
+class filesHelper
 {
 
     // Get the images from folder
@@ -28,21 +30,22 @@ class filesHelper
         $files = scandir($directory, (int)$params["sort"]);
 
         // Prepare to build images array
-        $regex = '/(\.('.$params['filetypes'].')$)/i';
+        $regex = '/(\.(' . $params['filetypes'] . ')$)/i';
         $images = array();
-        $count = 0;
+        $count = 1;
 
         // Loop over files
         foreach ($files as $file) :
             if (preg_match($regex, $file)) :
 
-                $alt = pathinfo($file, PATHINFO_FILENAME);
-                $alt = preg_replace("/(_|-)/"," ", $alt);
+                $file_name = pathinfo($file, PATHINFO_FILENAME);
+                $alt_text = preg_replace("/(_|-)/", " ", $file_name);
 
                 $image = array(
-                    "id" => $count, 
-                    "src" => $directory."/".$file,
-                    "alt" => ucfirst(strtolower($alt))
+                    "id" => $count,
+                    "name" => $file_name,
+                    "src" => Uri::root(true) . "/" . $directory . "/" . $file,
+                    "alt" => ucfirst(strtolower($alt_text))
                 );
 
                 $images[] = $image;
@@ -52,8 +55,5 @@ class filesHelper
         endforeach;
 
         return $images;
-
     }
-
-
 }
