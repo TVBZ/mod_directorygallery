@@ -8,31 +8,26 @@
 .light-gallery {
   display: flex;
   flex-flow: row wrap;
-  margin-left: -8px;
-  width: 100%;
+  margin: -10px -10px 0 0;
 }
 
 .lg-img-container {
   flex: auto;
-  height: 250px;
-  flex-basis: 150px;
-  margin: 0 8px 8px 0;
+  height: 300px;
+  flex-basis: 300px;
+  margin: 10px 10px 0 0;
 }
 
 .lg-img-container:nth-child(4n+1) {
-  flex-basis: 250px;
+  flex-basis: 240px;
 }
 
-.lg-img-container:nth-child(4n+1):nth-child(4n+2) {
-  flex-basis: 325px;
+.lg-img-container:nth-child(4n+2) {
+  flex-basis: 360px;
 }
 
-.lg-img-container:nth-child(4n+1):nth-child(4n+3) {
-  flex-basis: 180px;
-}
-
-.lg-img-container:nth-child(4n+1):nth-child(4n+4) {
-  flex-basis: 380px;
+.lg-img-container:nth-child(4n+4) {
+  flex-basis: 300px;
 }
 
 .lg-img-container img {
@@ -41,5 +36,4 @@
   height: 100%;
   vertical-align: middle;
   max-width: 100%;
-  cursor: pointer;
 }

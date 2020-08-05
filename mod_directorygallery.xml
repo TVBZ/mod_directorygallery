@@ -65,7 +65,7 @@
                     default="grid.css" 
                     label="Load Theme" 
                     description="">
-                     <option value="">None</option>
+                     <option value="0">None</option>
                      <option value="grid.css">Grid</option>
                      <option value="masonry-horizontal.css">Masonry horizontal</option>
               </field>
