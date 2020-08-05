@@ -42,7 +42,7 @@ jQuery(document).ready(function () {
             loop: (params.loop == 1),
             hideControlOnEnd: true,
             progressBar: (params.progressbar == 1),
-            // mouseWheel: true, //  @todo: not working.. jQuery plugin?
+            mouseWheel: (params.mousewheel == 1),
             pager: (params.pager == 1)
         };
 

@@ -27,6 +27,7 @@
                     label="Folder"
                     description='Set the path to folder relative to website root folder. For example: "images/projects".'
                     default="modules/mod_directorygallery/assets/img"
+                    required="true" 
                 />
 
                 <field
@@ -35,6 +36,7 @@
                     label="File types"
                     description='Set the accepted image extensions, separated by pipe character. For example: "jpg|png|jpeg".'
                     default="jpe?g|png|webp|gif|tiff|bmp"
+                    required="true" 
                 />
                 
               <field 
@@ -42,15 +44,50 @@
                     type="list" 
                     default="0" 
                     label="Sort images" 
-                    description="0">
+                    description="">
                      <option value="0">Ascending (A-Z)</option>
                      <option value="1">Descending (Z-A)</option>
               </field>
 
+              <field 
+                    name="loadcss" 
+                    type="list" 
+                    default="cdn" 
+                    label="Load CSS" 
+                    description="">
+                     <option value="cdn">CDN (jsdeliver)</option>
+                     <option value="local">local files</option>
+              </field>
+
+              <field 
+                    name="theme" 
+                    type="list" 
+                    default="grid.css" 
+                    label="Load Theme" 
+                    description="">
+                     <option value="">None</option>
+                     <option value="grid.css">Grid</option>
+                     <option value="masonry-horizontal.css">Masonry horizontal</option>
+              </field>
+
+              <field 
+                    name="loadjs" 
+                    type="list" 
+                    default="cdn" 
+                    label="Load JavaScript" 
+                    description="">
+                     <option value="cdn">CDN (jsdeliver)</option>
+                     <option value="local">local files</option>
+                     <option value="localcombined">local files (combined)</option>
+              </field>
+
+              <field name="spacer1"
+                     type="spacer"
+                     hr="true"/>
+
               <field name="transition" 
                      type="list"
                      multiple="false"
-                     required="true" 
                      default="lg-slide" 
                      label="Transition effect" 
                      description="">
@@ -91,12 +128,75 @@
                     name="speed"
                     type="text"
                     filter="UINT"
-                    label="Speed"
+                    label="Transition speed"
                     description="Transition duration"
                     default="600"
+                    required="true" 
                 />
 
-              <field name="spacer_1"
+              <field name="autoplay" 
+                     type="radio" 
+                     class="btn-group btn-group-yesno" 
+                     default="0" 
+                     label="Autoplay" 
+                     description="">
+                     <option value="0">JOFF</option>
+                     <option value="1">JON</option>
+              </field>
+
+              <field
+                    name="pauze"
+                    type="text"
+                    filter="UINT"
+                    label="Pauze"
+                    description="Pauze between transitions"
+                    default="6000"
+                    showon="autoplay:1"
+                />
+
+              <field name="autoplaycontrols" 
+                     type="radio" 
+                     class="btn-group btn-group-yesno" 
+                     default="1" 
+                     label="Autoplay controls" 
+                     description=""
+                     showon="autoplay:1">
+                     <option value="0">JHIDE</option>
+                     <option value="1">JSHOW</option>
+              </field>
+
+              <field name="progressbar" 
+                     type="radio" 
+                     class="btn-group btn-group-yesno" 
+                     default="1" 
+                     label="Progressbar" 
+                     description=""
+                     showon="autoplay:1">
+                     <option value="0">JHIDE</option>
+                     <option value="1">JSHOW</option>
+              </field>
+
+              <field name="loop" 
+                     type="radio" 
+                     class="btn-group btn-group-yesno" 
+                     default="0" 
+                     label="Loop images" 
+                     description="">
+                     <option value="0">JOFF</option>
+                     <option value="1">JON</option>
+              </field>
+
+              <field name="mousewheel" 
+                     type="radio" 
+                     class="btn-group btn-group-yesno" 
+                     default="0" 
+                     label="Slide by scroll" 
+                     description="">
+                     <option value="0">JOFF</option>
+                     <option value="1">JON</option>
+              </field>
+
+              <field name="spacer2"
                      type="spacer"
                      hr="true"/>
 
@@ -172,6 +272,7 @@
                     description="Zoom amount"
                     default="0.5"
                     showon="zoom:1"
+                    required="true" 
                 />
 
               <field name="actualsize" 
@@ -185,66 +286,10 @@
                      <option value="1">JSHOW</option>
               </field>
 
-              <field name="spacer_autoplay"
-                     type="spacer"
-                     hr="true"/>
-
-              <field name="autoplay" 
-                     type="radio" 
-                     class="btn-group btn-group-yesno" 
-                     default="0" 
-                     label="Autoplay" 
-                     description="">
-                     <option value="0">JOFF</option>
-                     <option value="1">JON</option>
-              </field>
-
-              <field name="autoplaycontrols" 
-                     type="radio" 
-                     class="btn-group btn-group-yesno" 
-                     default="1" 
-                     label="Autoplay controls" 
-                     description=""
-                     showon="autoplay:1">
-                     <option value="0">JHIDE</option>
-                     <option value="1">JSHOW</option>
-              </field>
-
-              <field name="progressbar" 
-                     type="radio" 
-                     class="btn-group btn-group-yesno" 
-                     default="1" 
-                     label="Progressbar" 
-                     description=""
-                     showon="autoplay:1">
-                     <option value="0">JHIDE</option>
-                     <option value="1">JSHOW</option>
-              </field>
-
-              <field
-                    name="pauze"
-                    type="text"
-                    filter="UINT"
-                    label="Pauze"
-                    description="Pauze between transitions"
-                    default="6000"
-                    showon="autoplay:1"
-                />
-
               <field name="spacer_00"
                      type="spacer"
                      hr="true"
               />
-
-              <field name="loop" 
-                     type="radio" 
-                     class="btn-group btn-group-yesno" 
-                     default="0" 
-                     label="Loop" 
-                     description="">
-                     <option value="0">JOFF</option>
-                     <option value="1">JON</option>
-              </field>
 
               <field name="hash" 
                      type="radio" 
@@ -298,8 +343,8 @@
                      label="Toggle thumbnails" 
                      description=""
                      showon="thumbnails:1" >
-                     <option value="0">JOFF</option>
-                     <option value="1">JON</option>
+                     <option value="0">JHIDE</option>
+                     <option value="1">JSHOW</option>
               </field>
 
                <field
@@ -310,6 +355,7 @@
                     description="Margin between thumbnails (px)."
                     default="10"
                     showon="thumbnails:1" 
+                    required="true" 
                 />
 
               
